@@ -56,10 +56,10 @@ nav {
   .nav-item {
     margin: 0px 30px;
   }
-  .col-md {
+  /* .col-md {
     padding: 30px;
     margin: 0px 30px;
-  }
+  } */
 }
 
 svg:hover {
@@ -115,7 +115,7 @@ a:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px;
+  /* padding: 100px; */
 }
 
 #whitecontainer {
