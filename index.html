@@ -52,7 +52,7 @@
 
     <div id="landingcontainer">
       <div id="displaylogo"></div>
-      <a id="primarydonatebutton" onclick="scrollCritical()">Help protect our police officers &nbsp; &nbsp; ⟶</a>
+      <a id="primarydonatebutton" onclick="scrollCritical()">Help protect our police officers &raquo;</a>
       <div id="scrollprompt">
         <div style="transform: rotate(90deg);font-size: 50px; color: black; cursor: pointer" onclick="scrollBlue()">&raquo;</div>
       </div>
@@ -81,7 +81,13 @@
     <div id="whitecontainer">
       <div id="innerWrap">
         <h1>Join us</h1>
-        <p>Every dollar counts.  Help us keep our police officers safe during this pandemic!</p>
+        <div style="display: flex; flex-direction: row;">
+          <div id="img1"></div>
+          <div id="img2"></div>
+          <div id="img3"></div>
+          <div id="img4"></div>
+        </div>
+        <p style="margin-bottom: 40px">Every dollar counts.  Help us keep our police officers safe during this pandemic!</p>
         <div class="gfm-embed" data-url="https://www.gofundme.com/f/help-provide-masks-for-officers-in-shelby-county/widget/large"></div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
       </div>
     </div>
@@ -274,9 +280,12 @@
         if($(document).scrollTop() < $("#bluecontainer").offset().top - 70) {
           $('#nav2, #nav3').removeClass("active");
           $('#nav1').addClass("active");
-        } else {
+        } else if($(document).scrollTop() < $("#whitecontainer").offset().top - 70) {
           $('#nav1, #nav3').removeClass("active");
           $('#nav2').addClass("active");
+        } else {
+          $('#nav1, #nav2').removeClass("active");
+          $('#nav3').addClass("active")
         }
       });
 
