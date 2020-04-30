@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="index.css" rel="stylesheet">
     <title>901PPE</title>
     <link rel="icon" 
       type="image/png" 
       href="https://raw.githubusercontent.com/901PPE/901ppe.github.io/master/fav.png">
-      <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Source+Sans+Pro:wght@300;700&display=swap" rel="stylesheet"> 
+      <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Source+Sans+Pro:wght@300;700&display=swap" rel="stylesheet">
 
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163790579-1"></script>
@@ -45,14 +46,23 @@
           <li id="nav2" class="nav-item">
             <a class="nav-link" onclick="scrollBlue()">Our Mission</a>
           </li>
-          <button class="btn" type="button" id="navdonatebutton" onclick="scrollCritical()">Donate Now</button>
+          <!-- <button class="btn" type="button" id="navdonatebutton" onclick="scrollCritical()">Learn more&nbsp;&nbsp;<span class="fa fa-angle-down"></span></button> -->
+          <li class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navdonatebutton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left:15px; padding-right:15px">
+              Learn More
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="thankyou.html">Our Donors</a>
+              <a class="dropdown-item" href="delivery.html">Mask Delivery</a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
 
     <div id="landingcontainer">
       <div id="displaylogo"></div>
-      <a id="primarydonatebutton" onclick="scrollCritical()">Help protect our police&nbsp;officers&nbsp;&raquo;</a>
+      <a id="primarydonatebutton" onclick="scrollCritical()">Learn More &raquo;</a>
       <div id="scrollprompt">
         <div style="transform: rotate(90deg);font-size: 50px; color: black; cursor: pointer" onclick="scrollBlue()">&raquo;</div>
       </div>
@@ -80,15 +90,26 @@
 
     <div id="whitecontainer">
       <div id="innerWrap">
-        <h1>Join us</h1>
-        <div style="display: flex; flex-direction: row;">
-          <div id="img1"></div>
-          <div id="img2"></div>
-          <div id="img3"></div>
-          <div id="img4"></div>
+        <div class="container">
+          <h1 style="text-align: center;">901PPE has ended...</h1>
+          <p style="margin-bottom: 40px; text-align: center; font-family: 'Source Sans Pro'; font-weight: 300; font-size: 20px;">...but the impact continues.  Click the links below to see how 901PPE brought the generosity of our community to the support of our police officers.</p>
+          <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="card_delivery.png" alt="Delivering the cards to Ridgeway Police Station">
+              <div class="card-body">
+                <h5 class="card-title">Mask Delivery</h5>
+                <a class="card-text stretched-link" href="delivery.html">Learn more about how the donations were used to bring thousands of masks to police stations in Collierville and Memphis.</a>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="card_donor.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Our Donors</h5>
+                <a class="card-text stretched-link" href="thankyou.html">View our complete list of donors, whose contributions were essential in making 901PPE a reality.</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <p style="margin-bottom: 40px; text-align: center;">Every dollar counts.  Help us keep our police officers safe during this pandemic!</p>
-        <div class="gfm-embed" data-url="https://www.gofundme.com/f/help-provide-masks-for-officers-in-shelby-county/widget/large"></div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
       </div>
     </div>
 
@@ -218,6 +239,7 @@
           } else {
             img.resize(sketch.width / 2, 0);
           }
+          numDots = sketch.floor(sketch.width * sketch.height / 5000);
           for(let i = 0; i < numDots; i++) {
             dots.push(new Dot());
           }

@@ -1,0 +1,35 @@
+/*
+Try to keep most of your CSS in this separate file
+so that the HTML file stays relatively uncluttered
+*/
+
+h1 {
+	font-family: 'PT Mono',
+	sans-serif; color: black; 
+	margin-top: 50px;
+	text-align: center;
+}
+
+#backbutton {
+	color: white;
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.no-gutters {
+	margin-right: 5px;
+	margin-left: 5px;
+  }
+
+.no-gutters > .col, .no-gutters > [class*="col-"] {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	padding-bottom: 10px;
+}
