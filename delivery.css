@@ -54,3 +54,17 @@ img {
 	text-decoration: underline;
 	color: white;
 }
+
+.profiles img {
+	border-radius: 50%;
+	width: 75%;
+}
+
+.profiles p {
+	font-family: "Source Sans Pro";
+	font-weight: 400;
+	font-size: 20px;
+	margin-top: 5px;
+	margin-bottom: 40px;
+
+}
