@@ -21,11 +21,43 @@
 
         gtag('config', 'UA-163790579-1');
       </script> -->
-
+      <style>
+        #blmbanner {
+          background-color: black;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          z-index: 100;
+          padding: 10px 0px;
+          display: none;
+        }
+        #blmbanner > p {
+          color: white;
+          margin: 0;
+          font-family: "Source Sans Pro", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+        }
+        #blmbanner > p > a, #blmbanner > p > a:hover, #blmbanner > p > a:active {
+          text-decoration: underline;
+          font-weight: 700;
+          cursor: pointer;
+          color: white;
+        }
+      </style>
   </head>
   <body>
-    <nav class="navbar navbar-light fixed-top" style="background-color: rgb(0, 102, 255); justify-content: space-between;">
-      <a href="index.html" id="backbutton"><span class="fa fa-angle-left"></span>&nbsp;&nbsp;Go back to home</a>
+    <div id="blmbanner">
+      <div style="width: 20px"></div>
+      <p>#BlackLivesMatter.  Read our statement on recent police brutality in America <a href="index.html">here</a>.</p>
+      <div style="color: white; margin: 0px; margin-right: 10px; cursor: pointer" onclick="closeBanner()">x</div>
+    </div>
+    <nav class="navbar navbar-light fixed-top" style="background-color: rgb(0, 102, 255); justify-content: space-between;" id="nbar">
+      <a href="home.html" id="backbutton"><span class="fa fa-angle-left"></span>&nbsp;&nbsp;Go back to home</a>
       <a class="navbar-brand" href="#">
         <svg
             width="36.294926pt"
@@ -143,5 +175,32 @@
 			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 			  crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+      function closeBanner() {
+        $("#blmbanner").css({display: "none"});
+        document.getElementById("nbar").style.top = "0px";
+        localStorage.setItem("lo", Date.now());
+      }
+      $( document ).ready(function() {
+        let lastopened = localStorage.getItem("lo");
+        if(lastopened && Date.now() - parseInt(lastopened) < 8.64e+7) {
+          $("#blmbanner").css({display: "none"});
+        } else {
+          $("#blmbanner").css({display: "flex"});
+          document.getElementById("nbar").style.top = $("#blmbanner").height() + 20 + "px";
+        }
+      });
+
+      $( window ).resize(function() {
+        let lastopened = localStorage.getItem("lo");
+        if(lastopened && Date.now() - parseInt(lastopened) < 8.64e+7) {
+          $("#blmbanner").css({display: "none"});
+        } else {
+          $("#blmbanner").css({display: "flex"});
+          document.getElementById("nbar").style.top = $("#blmbanner").height() + 20 + "px";
+        }
+      });
+    </script>
   </body>
 </html>
